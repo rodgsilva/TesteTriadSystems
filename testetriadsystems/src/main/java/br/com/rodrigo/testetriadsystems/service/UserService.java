@@ -43,16 +43,30 @@ public class UserService {
 		
 	}
 	
-	public Messages postMessage(BotsMessageDTO bots) {
+	public Messages postMessage(Messages mess) {
 		
 		
-		messagesrRepo.save(message);
-		return message;
+		return messagesrRepo.save(mess);
+		
+		
+	}
+	public void incluiMenssagebot(Messages mess, User bots) {
+	
+		bots.setMessage(mess);
+			 
+		
+		repo.save(bots);
+		
+		
 		
 	}
 	
 	public Messages fromDTO(BotsMessageDTO bots) {
 		Date date = new Date();
 		return new Messages(null, date,bots.getText());  
+	}
+	
+	public User postBots(User user) {
+		return repo.save(user);
 	}
 }

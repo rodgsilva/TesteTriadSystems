@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.logging.log4j.message.Message;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -17,7 +17,7 @@ public class User implements Serializable {
 	private String name;
 	private String email;
 
-	private List<Message> message = new ArrayList<>();
+	private List<Messages> message = new ArrayList<>();
 	
 	public User() {		
 	}
@@ -55,12 +55,12 @@ public class User implements Serializable {
 	
 	
 
-	public List<Message> getMessage() {
+	public List<Messages> getMessage() {
 		return message;
 	}
 
-	public void setMessage(List<Message> message) {
-		this.message = message;
+	public void setMessage(Messages mess) {
+		this.message.add(mess);
 	}
 
 	@Override

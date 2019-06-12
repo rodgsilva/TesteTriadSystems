@@ -31,12 +31,29 @@ public class UserResources {
 		return ResponseEntity.ok().body(list);
 	}
 	
-	@PostMapping
+	@PostMapping(value="/menssage")
 	public ResponseEntity<List<Void>> PostMessage(@RequestBody BotsMessageDTO objDto){
 		
+		User bots = service.getUser(objDto.getFrom());
+		
 		Messages mess = service.fromDTO(objDto);
+				
+		mess = service.postMessage(mess);
+		
+		service.incluiMenssagebot(mess,bots);
+		
+		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(mess.getId()).toUri();
-		return ResponseEntity.created(uri).build();;
+		return ResponseEntity.created(uri).build();
+	}
+	
+	@PostMapping
+	public ResponseEntity<Void> postBost(@RequestBody User objDTO){
+		
+		objDTO = service.postBots(objDTO);
+		
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(objDTO.getId()).toUri();
+		return ResponseEntity.created(uri).build();
 	}
 
 }
