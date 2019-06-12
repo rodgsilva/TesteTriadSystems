@@ -18,7 +18,7 @@ import br.com.rodrigo.testetriadsystems.domain.dto.BotsMessageDTO;
 import br.com.rodrigo.testetriadsystems.service.UserService;
 
 @RestController
-@RequestMapping(value="/users")
+@RequestMapping(value="/bots")
 public class UserResources {
 	
 	@Autowired

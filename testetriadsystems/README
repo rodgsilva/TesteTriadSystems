@@ -1,0 +1,17 @@
+##: Cadastro da session
+
+POST : localhost:8080/bots
+
+{
+    "name": "Rodrigo Teste pelo Post",
+    "email": "rod@gmail.com"       
+ }
+ 
+ ## cadastro da menssage 
+ 
+ POST : localhost:8080/bots/menssage
+ 
+  {
+     "from":"5d011d6cd1cce04b18f370bc",
+	"text": "Teste de chat bots numero 555"
+   }
