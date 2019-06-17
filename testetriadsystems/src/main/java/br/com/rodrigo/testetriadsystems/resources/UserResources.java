@@ -32,7 +32,7 @@ public class UserResources {
 	}
 	
 	@PostMapping(value="/menssage")
-	public ResponseEntity<List<Void>> PostMessage(@RequestBody BotsMessageDTO objDto){
+	public ResponseEntity<List<Void>> postMessage(@RequestBody BotsMessageDTO objDto){
 		
 		User bots = service.getUser(objDto.getFrom());
 		
